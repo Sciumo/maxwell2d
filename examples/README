@@ -1,0 +1,37 @@
+This directory contains a large number of input configuration (cfg)
+files for the maxwell2d_gif and maxwell2d_nc programs.  The simplest
+way to use them is with the create_gif.sh and create_nc.sh scripts,
+e.g.
+
+  ./create_gif.sh circle10.cfg
+
+will create an animation of a wave impinging on a circle with a
+dielectric constant similar to liquid water interacting with visible
+light.  To animate all the cfg files in the directory, type
+
+  ./create_gif.sh *.cfg
+
+and wait.  You can do a similar operations to create NetCDF files
+using the create_nc.sh script.
+
+If you wish to modify or create your own cfg files then it should be
+straightforward to do so, but you should note that the scripts
+concatenate these with the default/domain.cfg, which defines the size
+of the domain and the nature of the oscillator that generates the
+incoming E-M wave (although these settings may be overridden in the
+cfg files within this directory. The default/ directory also contains
+the files z.cfg, xy.cfg and xyz.cfg, which define the amplitude of the
+electric field components of the oscillator. If you use the z.cfg or
+xy.cfg files (using the POL setting in the scripts) then the number of
+E- and B-field components that need to be simulated is halved, and the
+simulation will run twice as fast.
+
+A later version of this distribution will include a comprehensive list
+of all the commands that can be used in cfg files, but for now you
+will need to glean this information from the examples shown, and the
+src/mw_shape.c file.
+
+If you have access to Matlab with the NetCDF toolbox installed, then
+you can use the plot_fields.m script to generate png figures to
+display the dielectric constant distribution and the Poynting vector.
+

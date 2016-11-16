@@ -1,0 +1,75 @@
+Maxwell2D -- a 2D simulation of Maxwell's equations to demonstrate
+physical phenomena associated with electromagnetic waves
+
+Robin Hogan
+r.j.hogan@reading.ac.uk
+5 August 2009
+
+
+INTRODUCTION
+
+This package contains the code for a 2D Finite-Difference Time-Domain
+(FDTD) simulator that solves Maxwell's equations in the presence of an
+arbitrary field of dielectric constant. Two versions of the program
+are available:
+
+  maxwell2d_gif  which produces animated gif files
+  maxwell2d_nc   which reports the results in a NetCDF file
+
+The latest version of the code, together with animations, can be found
+here:
+
+  http://www.met.rdg.ac.uk/clouds/maxwell/
+
+
+TO COMPILE
+
+This code is written in C and has been tested on Linux (Fedora 8 and SuSE)
+only.  It should work with little modification on any flavour of Unix,
+but if you want to run it on Windows you're on your own.
+
+NetCDF library: The maxwell2d_nc program requires the NetCDF library
+to be installed.  If you wish to create NetCDF files you will need to
+download and install it, e.g. from
+
+  http://www.unidata.ucar.edu/software/netcdf/
+
+If you have a Linux distribution with the RPM package format, you
+should install the netcdf and netcdf-devel packages.
+
+Gif library: The maxwell2d_gif program requires the gif library to be
+installed. To avoid very large files it is important to use compressed
+gifs. Unisys held the patent on the LZW compression algorithm, but
+this patent expired in 2003 or 2004 (depending where you
+live). Unfortunately, many Linux distributions still only ship with a
+version of the gif library that can only produce uncompressed gif
+images.  If your operating system is in this category, then for your
+convenience I have included the full library in
+
+  giflib-4.1.6/
+
+Simply enter this directory and type 
+
+  ./configure
+  make install
+
+Then return to the original directory, enter the
+
+  src/
+
+directory and type
+
+  make all
+
+If all goes well, the executables "maxwell2d_nc" and "maxwell2d_gif"
+should appear.
+
+
+TO TEST
+
+Enter the 
+
+  examples/
+
+directory.  Follow the instructions given in the README file there.
+
